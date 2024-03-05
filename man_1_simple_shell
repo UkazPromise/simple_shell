@@ -1,0 +1,63 @@
+I.TH k_shell 1 "13 April 2020" "1.0" "Kayman-shell man page"
+
+.SH NAME
+k_shell \- Kayman-shell
+
+.SH SYNOPSIS
+.B k_shell [options] [file]
+
+.SH DESCRIPTION
+The Kayman-shell (k_shell) is a lightweight and efficient command-line interface developed for Holberton School students. It interprets commands from a command line string, standard input, or a specified file.
+
+.SH OPTIONS
+If there are no command-line options, k_shell reads commands from standard input. When in interactive mode, no operands are needed.
+
+.SH ENVIRONMENT VARIABLES
+.TP
+.B ENV
+This variable, when set in an interactive shell, specifies the pathname of a file containing shell commands to execute in the current environment.
+
+.TP
+.B HOME
+Determines the pathname of the user's home directory.
+
+.TP
+.B LANG
+Provides a default value for unset or null internationalization variables.
+
+...
+
+.SH ASYNCHRONOUS EVENTS
+The k_shell utility handles signals according to standard actions. In interactive mode, SIGINT signals during command line editing are managed as described in the EXTENDED DESCRIPTION.
+
+...
+
+.SH EXAMPLES
+.B 1. Non-interactive mode:
+$ echo "/bin/ls" | k_shell
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | k_shell
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
+
+.B 2. Interactive mode:
+$ k_shell
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+
+...
+
+.SH SEE ALSO
+acces(2), chdir(2), close(2), execve(2), exit(3), _exit(2), fflush(3), fork(2), free(3), getcwd(3), getline(3), isatty(3), kill(2), ...
+
+...
+
